@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "e3550bef-2c41-4c33-9a84-aa3588a19408",
+		"name": "ReactiveMicroservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Customer random ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\": \"{{$guid}}\",\r\n  \"Name\": \"Prajeesh Prathap\",\r\n  \"CreditLimit\": 1000.0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:32001/api/Customer/NewCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32001",
+					"path": [
+						"api",
+						"Customer",
+						"NewCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\": \"b3d27f9b-d21d-327c-164e-7fb6776f87b0\",\r\n  \"Name\": \"Prajeesh Prathap\",\r\n  \"CreditLimit\": 1000.0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:32001/api/Customer/NewCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32001",
+					"path": [
+						"api",
+						"Customer",
+						"NewCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Credit Limit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "4000.0"
+				},
+				"url": {
+					"raw": "http://localhost:32001/api/Customer/b3d27f9b-d21d-327c-164e-7fb6776f87b0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32001",
+					"path": [
+						"api",
+						"Customer",
+						"b3d27f9b-d21d-327c-164e-7fb6776f87b0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\": \"b4d27f9b-d21d-327c-164e-7fb6776f87b0\",\r\n  \"CustomerId\": \"b3d27f9b-d21d-327c-164e-7fb6776f87b0\",\r\n  \"Amount\": 800.0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:32002/api/Orders/NewOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32002",
+					"path": [
+						"api",
+						"Orders",
+						"NewOrder"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
