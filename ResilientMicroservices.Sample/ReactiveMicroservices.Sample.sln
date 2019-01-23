@@ -36,6 +36,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postman", "Postman", "{206A
 		Postman\ReactiveMicroservices.postman_collection.json = Postman\ReactiveMicroservices.postman_collection.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentD", "FluentD", "{687DCF5A-F257-40DA-A13F-64FFEAE35C4A}"
+	ProjectSection(SolutionItems) = preProject
+		Fluentd\Dockerfile = Fluentd\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conf", "conf", "{A3D3AF13-CBD1-4F20-98CE-66C6AB7147C1}"
+	ProjectSection(SolutionItems) = preProject
+		Fluentd\conf\fluent.conf = Fluentd\conf\fluent.conf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +111,7 @@ Global
 		{20ECBDE4-534D-4849-BF9D-B3575DD9184E} = {42759AB5-81C9-4706-8128-B9F2F9D30E51}
 		{9B7359D3-4B40-40ED-B44C-DA49F0B5C46C} = {FFC623E3-9A6C-428C-B4AB-0D239AD7EF70}
 		{765D90BD-1BC6-4E57-9276-D0D897B5AC8D} = {FFC623E3-9A6C-428C-B4AB-0D239AD7EF70}
+		{A3D3AF13-CBD1-4F20-98CE-66C6AB7147C1} = {687DCF5A-F257-40DA-A13F-64FFEAE35C4A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A61F5FA7-4FD2-4CD5-92AB-985A8ECFC257}
