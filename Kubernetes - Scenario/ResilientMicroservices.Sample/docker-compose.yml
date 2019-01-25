@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  customerservice:
+    image: customersvc
+    build:
+      context: .
+      dockerfile: Customers.Web/Dockerfile
+    ports:
+    - 32001:80
+
+  orderservice:
+    image: ordersvc
+    build:
+      context: .
+      dockerfile: Orders.Web/Dockerfile
+    ports:
+    - 32002:80

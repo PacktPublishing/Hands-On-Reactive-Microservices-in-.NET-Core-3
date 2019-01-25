@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: orderservice
+    component: orderservice
+  name: orderservice
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: orderservice
+    component: orderservice
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: orderservice
+spec:
+  template:
+    metadata:
+      labels:
+        app: orderservice
+        component: orderservice
+    spec:
+      imagePullSecrets:
+       - name: regsecret
+      containers:
+      - name: orderservice
+        image: localhost:5000/orderservice:0.1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /hc
+            port: 80
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /hc
+            port: 80
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+          periodSeconds: 10

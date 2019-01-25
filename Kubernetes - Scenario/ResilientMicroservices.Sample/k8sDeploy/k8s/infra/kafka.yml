@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kafkaserver
+  name: kafkaserver
+spec:
+  ports:
+  - port: 2181
+    name: zookeeper
+  - port: 9092
+    name: broker
+  selector:
+    app: kafkaserver
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kafkaserver
+spec:
+  template:
+    metadata:
+      labels:
+        app: kafkaserver
+    spec:
+      containers:
+      - name: kafkaserver
+        image: spotify/kafka:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 2181
+        - containerPort: 9092
+        env:
+        - name: ADVERTISED_HOST
+          value: "kafkaserver"
+        - name: ADVERTISED_PORT
+          value: "9092"

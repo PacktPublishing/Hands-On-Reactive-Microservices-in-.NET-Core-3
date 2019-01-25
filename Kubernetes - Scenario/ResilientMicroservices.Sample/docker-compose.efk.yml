@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
+    environment:
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    deploy:
+      resources:
+        limits:
+          memory: 1Gi
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana-oss:6.2.4
+    depends_on:
+      - elasticsearch
+    links:
+      - "elasticsearch"
+    ports: 
+      - 5601:5601
+
+  fluentd:
+    image: fluentdelasticsearch
+    build: 
+       context: ./Fluentd
+       dockerfile: Dockerfile
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    depends_on:
+      - elasticsearch
+    links: 
+      - "elasticsearch"
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+
+  customerservice:
+    depends_on:
+      - fluentd
+    logging:
+      driver: fluentd
+
+  orderservice:
+    depends_on:
+      - fluentd
+    logging:
+      driver: fluentd
