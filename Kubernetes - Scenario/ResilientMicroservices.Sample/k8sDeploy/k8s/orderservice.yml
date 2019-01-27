@@ -23,9 +23,17 @@ spec:
         app: orderservice
         component: orderservice
     spec:
+      volumes:
+        - name: orderservice
+          configMap:
+            name: orderserviceconf
       containers:
       - name: orderservice
         image: localhost:5000/orderservice:0.1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name:  orderservice
+            mountPath: /app/configs
+            readOnly: true

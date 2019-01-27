@@ -34,6 +34,11 @@ Write-Host "Setup k8s requirements" -ForegroundColor Yellow
 & kubectl config set-context $(& kubectl  config current-context) --namespace=$namespace
 
 Write-Host "Starting k8s deployment" -ForegroundColor Yellow
+& kubectl apply -f "$PSScriptRoot\k8s\configuration"
+Push-Location "$PSScriptRoot\k8s\configuration"
+& kubectl create secret generic customerservicesecret --from-file="customerservice.settings.json" --validate=false
+& kubectl create secret generic orderservicesecret --from-file="orderservice.settings.json" --validate=false
+Pop-Location
 & kubectl apply -f "$PSScriptRoot\k8s"
 If ($LASTEXITCODE -ne 0) {
     throw "Failed to create deployments in k8s"

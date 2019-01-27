@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orderserviceconf
+  namespace: packt
+data:
+  messaging: |
+    KafkaConsumer:
+      Server: kafkaserver
+      Topics:
+        - ReactiveMicroservices      
+      GroupId: order-service
+      TimeOut: "00:00:01"
+    KafkaProducer:
+      Server: kafkaserver
+      MaxRetries: 2
+      MessageTimeout: "00:00:15"

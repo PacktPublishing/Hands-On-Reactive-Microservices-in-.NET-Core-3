@@ -17,15 +17,30 @@ kind: Deployment
 metadata:
   name: customerservice
 spec:
+  replicas: 3
   template:
     metadata:
       labels:
         app: customerservice
         component: customerservice
     spec:
+      volumes:
+        - name: customerservice
+          configMap:
+            name: customerserviceconf
+        - name: customerservicesec
+          secret:
+            secretName: customerservicesecret
       containers:
       - name: customerservice
         image: localhost:5000/customerservice:0.1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name:  customerservice
+            mountPath: /app/configs
+            readOnly: true
+          - name:  customerservicesec
+            mountPath: /app/secret
+            readOnly: true
