@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e3550bef-2c41-4c33-9a84-aa3588a19408",
+		"_postman_id": "23655253-fb1f-4389-8dd8-57eec5650c8f",
 		"name": "ReactiveMicroservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Id\": \"{{$guid}}\",\r\n  \"Name\": \"Prajeesh Prathap\",\r\n  \"CreditLimit\": 1000.0\r\n}"
+					"raw": "{\r\n  \"Id\": \"{{$guid}}\",\r\n  \"Name\": \"John\",\r\n  \"CreditLimit\": 1000.0\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:32001/api/Customer/NewCustomer",
@@ -70,6 +70,45 @@
 			"response": []
 		},
 		{
+			"name": "New Customer - k8s",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\": \"b3d27f9b-d21d-327c-164e-7fb6776f87b0\",\r\n  \"Name\": \"Prajeesh Prathap\",\r\n  \"CreditLimit\": 1000.0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/v1/namespaces/packt/services/customerservice/proxy/api/customer/NewCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"namespaces",
+						"packt",
+						"services",
+						"customerservice",
+						"proxy",
+						"api",
+						"customer",
+						"NewCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update Credit Limit",
 			"request": {
 				"method": "PUT",
@@ -102,6 +141,45 @@
 			"response": []
 		},
 		{
+			"name": "Update Credit Limit - k8s",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "4000.0"
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/v1/namespaces/packt/services/customerservice/proxy/api/customer/b3d27f9b-d21d-327c-164e-7fb6776f87b0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"namespaces",
+						"packt",
+						"services",
+						"customerservice",
+						"proxy",
+						"api",
+						"customer",
+						"b3d27f9b-d21d-327c-164e-7fb6776f87b0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "New Order",
 			"request": {
 				"method": "POST",
@@ -127,6 +205,45 @@
 					"path": [
 						"api",
 						"Orders",
+						"NewOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Order - k8s",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\": \"b4d27f9b-d21d-327c-164e-7fb6776f87b0\",\r\n  \"CustomerId\": \"b3d27f9b-d21d-327c-164e-7fb6776f87b0\",\r\n  \"Amount\": 800.0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/v1/namespaces/packt/services/orderservice/proxy/api/orders/NewOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"namespaces",
+						"packt",
+						"services",
+						"orderservice",
+						"proxy",
+						"api",
+						"orders",
 						"NewOrder"
 					]
 				}
