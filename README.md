@@ -1,7 +1,7 @@
 # Hands-On-Reactive-Microservices-in-.NET-Core-3
 Hands-On Reactive Microservices in .NET Core 3, published by Packt
 
-This is the code repository for [Hands-On Reactive Microservices in .NET Core [Video]](https://www.packtpub.com/application-development/hands-reactive-microservices-net-core-3-video, published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
+This is the code repository for [Hands-On Reactive Microservices in .NET Core [Video]](https://www.packtpub.com/application-development/hands-reactive-microservices-net-core-3-video), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
 ## About the Video Course
 Microservice architecture and development are gaining momentum in enterprises. While microservices are more modular to develop and may look simpler, there are also a lot of complexities in creating these distributed systems. In this course you learn about the tools and techniques that are necessary to successfully develop, deploy, manage, and monitor microservice-based applications. We develop a basic distributed reactive microservice system using .NET Core and Apache Kafka to send messages across microservices. We learn about using patterns such as CQRS to manage complexities in distributed systems. You'll also learn to containerize these services and use Kubernetes to manage the deployment, scaling, and updating of these services. By the end of the course, you'll be confident in implementing Kubernetes tools and resources to effectively deploy and manage microservices.
 
